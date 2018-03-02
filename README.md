@@ -19,3 +19,9 @@
 ## 02 Todos page
 
 * Edit and style the index page.
+
+&nbsp;
+## 03 Fetch todos
+
+* Use jQuery's getJSON method and fetch the data by calling the API.
+* Fill the todo list with the todos that the API fetches from the database.  

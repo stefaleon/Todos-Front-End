@@ -37,14 +37,29 @@
       <div class="one-half column" style="margin-top: 5%">
         <h2>todo<strong>list</strong></h2>
         <input class="u-full-width" type="text" placeholder="I just want to have something to do">
-        <ul id="todos-list">
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-        </ul>
+        <ul id="todos-list"></ul>
       </div>
     </div>
   </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+
+    $.getJSON("/api/todos")
+    .then(addTodos);
+
+    function addTodos(todos) {
+        todos.forEach(function(todo) {
+          var todoItem = $('<li>' + todo.name + '</li>');
+          $('#todos-list').append(todoItem);
+        });
+    }
+
+  });
+</script>
 
 
 <!-- End Document
