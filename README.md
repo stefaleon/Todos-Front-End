@@ -25,3 +25,8 @@
 
 * Use jQuery's getJSON method and fetch the data by calling the API.
 * Fill the todo list with the todos that the API fetches from the database.  
+
+&nbsp;
+## 04 Display todo status
+
+* Style the *completed* class and apply it conditionally to todos.

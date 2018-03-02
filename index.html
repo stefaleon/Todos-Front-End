@@ -54,6 +54,7 @@
     function addTodos(todos) {
         todos.forEach(function(todo) {
           var todoItem = $('<li>' + todo.name + '</li>');
+          if (todo.completed) { todoItem.addClass("completed"); }
           $('#todos-list').append(todoItem);
         });
     }
