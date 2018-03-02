@@ -6,9 +6,10 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/../'));
 
 app.get('/', function(req, res) {
-  res.send("Express says \"Ohai from the ROOT!\"");
+  res.sendFile("index.html");
 });
 
 app.use('/api/todos', todoRoutes);
