@@ -7,5 +7,28 @@
 .completed {
   background-color: #ccc;
   opacity: 0.5;
-  text-decoration: line-through;  
+  text-decoration: line-through;
+}
+
+#todos-list li:hover {
+  cursor: pointer;
+}
+
+#todos-list li span {
+  color: #ff7777;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  padding: 0 7px;
+}
+
+#todos-list li:hover span {
+  opacity: 1;
+}
+
+#todos-list li span:hover {
+  background-color: white;
+  border-radius: 50%;
+  color: #ff0000;
+  opacity: 1;
 }

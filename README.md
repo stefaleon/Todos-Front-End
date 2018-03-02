@@ -30,3 +30,20 @@
 ## 04 Display todo status
 
 * Style the *completed* class and apply it conditionally to todos.
+
+
+&nbsp;
+## 05 Create todos with the input
+
+* Add a keypress handler so that a todo is saved when enter is pressed.
+* Refactor *addTodos* bringing *addTodo* to a separate function.
+* Add the *createTodo* function.
+* Clear the input.
+
+
+&nbsp;
+## 06 Remove todos
+
+* Use the jQuery `.data()` method to attach ids to the list items.
+* Add a click event on the list that gets triggered from the span and calls *removeTodo*.
+* The *removeTodo* function removes the todo with the clicked id from the db with an AJAX request. It also takes the todo element out of the DOM by use of the jQuery `.remove()` method.
