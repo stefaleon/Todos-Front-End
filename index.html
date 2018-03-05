@@ -60,8 +60,13 @@
       }
     });
 
-    $('#todos-list').on('click', 'span', function() {
+    $('#todos-list').on('click', 'span', function(e) {
+      e.stopPropagation();
       removeTodo($(this).parent());
+    });
+
+    $('#todos-list').on('click', 'li', function() {
+      updateTodo($(this));
     });
 
   });
@@ -75,6 +80,7 @@
   function addTodo(todo) {
     var todoItem = $('<li>' + todo.name + '<span class="u-pull-right">✖</span></li>');
     todoItem.data('id', todo._id);
+    todoItem.data('completed', todo.completed);
     if (todo.completed) { todoItem.addClass("completed"); }
     $('#todos-list').append(todoItem);
   }
@@ -108,6 +114,33 @@
     .then(function() {
       // remove from the DOM
       todo.remove();
+    })
+    .catch(function(error) {
+      console.log(error)
+    });
+  }
+
+
+  function updateTodo(todo) {
+    console.log(todo.data('completed'));
+    var clickedId = todo.data('id');
+    console.log('trying to update todo with id: ' + clickedId);
+    var urlToUpdate = '/api/todos/' + clickedId;
+    // AJAX call to the API in order to update in db
+    // send data with the completed property toggled
+    $.ajax({
+      method: 'PUT',
+      url: urlToUpdate,
+      data: { completed: !(todo.data('completed')) }
+    })
+    .then(function(serverMessage) {
+      console.log(serverMessage);
+    })
+    .then(function() {
+      // update the DOM conditionally in order to display the toggled state
+      todo.data('completed') ? todo.removeClass("completed") : todo.addClass("completed")
+      // update the todo.data('completed') so that consecutive toggles can be performed
+      todo.data('completed', !todo.data('completed'));
     })
     .catch(function(error) {
       console.log(error)

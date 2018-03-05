@@ -44,6 +44,15 @@
 &nbsp;
 ## 06 Remove todos
 
-* Use the jQuery `.data()` method to attach ids to the list items.
+* In *addTodo*, use the jQuery `.data()` method to attach ids to the list items.
 * Add a click event on the list that gets triggered from the span and calls *removeTodo*.
 * The *removeTodo* function removes the todo with the clicked id from the db with an AJAX request. It also takes the todo element out of the DOM by use of the jQuery `.remove()` method.
+
+
+&nbsp;
+## 07 Toggle completion
+
+* Add another click event on the list that gets triggered from the list items and calls *upateTodo*.
+* Stop event propagation from the span so that only the delete functionality is triggered from there.
+* In *addTodo*, use the jQuery `.data()` method again in order to attach the *completed* property to the list items.
+* The *updateTodo* function updates the db with an AJAX PUT request where data is being sent with the completed property state toggled. Then the DOM is being updated as well by adding or removing the *completed* class. The *todo.data('completed')* property state must be updated with each toggle in order to be able to perform consecutive toggles.
