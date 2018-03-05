@@ -2,6 +2,11 @@
 ### App that makes use of the Todos-API
 [The Advanced Web Developer Bootcamp](https://www.udemy.com/the-advanced-web-developer-bootcamp/)
 
+
+
+## Start the API server from within the API folder with `node index.js`. Then index.html is being served due to the config made in 01.
+
+
 &nbsp;
 ## 00 Initial
 
